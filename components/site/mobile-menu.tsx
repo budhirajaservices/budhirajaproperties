@@ -37,7 +37,7 @@ export default function MobileMenu() {
           <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={closeMenu} />
 
           {/* Menu Panel */}
-          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl">
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl border-l">
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b">
@@ -76,7 +76,7 @@ export default function MobileMenu() {
               </nav>
 
               {/* Contact Info */}
-              <div className="px-6 py-6 border-t bg-slate-50">
+              <div className="px-6 py-6 border-t bg-white">
                 <h3 className="text-sm font-semibold text-slate-900 mb-3">Quick Contact</h3>
                 <div className="space-y-3">
                   <a
