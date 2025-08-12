@@ -40,8 +40,7 @@ export default function MobileMenu() {
           <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl">
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-white">
-                <img src="/logo-budhiraja-services-wide.png" alt="Budhiraja Services" className="h-8 w-auto" />
+              <div className="flex items-center justify-end p-4 border-b border-slate-200 bg-white">
                 <button
                   onClick={closeMenu}
                   className="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-slate-100 transition-colors"
