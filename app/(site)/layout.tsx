@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals-site.css"
 import { WhatsAppFloat } from "@/components/site/whatsapp-float"
+import MobileMenu from "@/components/site/mobile-menu"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -60,6 +61,8 @@ export default function RootLayout({
                   <img src="/logo-budhiraja-services-wide.png" alt="Budhiraja Services" className="h-16 w-auto" />
                 </a>
               </div>
+
+              {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
                 <a href="/" className="transition-colors hover:text-orange-600">
                   Home
@@ -80,13 +83,19 @@ export default function RootLayout({
                   Contact
                 </a>
               </nav>
+
               <div className="flex items-center space-x-4">
                 <a
                   href="/contact"
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  className="hidden sm:inline-block bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   Get Quote
                 </a>
+
+                {/* Mobile Menu Component */}
+                <div className="md:hidden">
+                  <MobileMenu />
+                </div>
               </div>
             </div>
           </header>
