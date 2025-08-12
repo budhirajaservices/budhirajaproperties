@@ -32,12 +32,12 @@ export default function MobileMenu() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 md:hidden" style={{ zIndex: 9999 }}>
           {/* Backdrop */}
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={closeMenu} />
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-0" onClick={closeMenu} />
 
           {/* Menu Panel */}
-          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl border-l">
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl border-l z-10">
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b">
