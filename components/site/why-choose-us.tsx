@@ -36,7 +36,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="container mx-auto px-4 py-16 bg-slate-50">
       <div className="text-center space-y-3 mb-12">
         <h2 className="text-3xl font-bold">Why choose Budhiraja Services?</h2>
         <p className="text-slate-600 max-w-2xl mx-auto">

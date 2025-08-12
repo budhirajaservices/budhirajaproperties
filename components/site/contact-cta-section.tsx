@@ -9,13 +9,12 @@ export default function ContactCTASection() {
       <div className="text-center space-y-3 mb-12">
         <h2 className="text-3xl font-bold">Ready to get started?</h2>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Let's discuss your project and create a website that helps your business grow. Get in touch with us today for
-          a free consultation.
+          Let's discuss your project and create a website that helps your business grow online.
         </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-3 mb-8">
-        <Card className="text-center hover:shadow-lg transition-shadow">
-          <CardContent className="p-6">
+        <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+          <CardContent className="p-6 text-center">
             <Phone className="h-8 w-8 text-orange-500 mx-auto mb-3" />
             <h3 className="font-semibold mb-2">Call Us</h3>
             <p className="text-sm text-slate-600 mb-3">Speak directly with our team</p>
@@ -24,8 +23,8 @@ export default function ContactCTASection() {
             </Button>
           </CardContent>
         </Card>
-        <Card className="text-center hover:shadow-lg transition-shadow">
-          <CardContent className="p-6">
+        <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+          <CardContent className="p-6 text-center">
             <Mail className="h-8 w-8 text-orange-500 mx-auto mb-3" />
             <h3 className="font-semibold mb-2">Email Us</h3>
             <p className="text-sm text-slate-600 mb-3">Send us your requirements</p>
@@ -34,8 +33,8 @@ export default function ContactCTASection() {
             </Button>
           </CardContent>
         </Card>
-        <Card className="text-center hover:shadow-lg transition-shadow">
-          <CardContent className="p-6">
+        <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+          <CardContent className="p-6 text-center">
             <MessageCircle className="h-8 w-8 text-orange-500 mx-auto mb-3" />
             <h3 className="font-semibold mb-2">WhatsApp</h3>
             <p className="text-sm text-slate-600 mb-3">Quick chat for instant help</p>
@@ -53,7 +52,7 @@ export default function ContactCTASection() {
       </div>
       <div className="text-center">
         <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
-          <Link href="/contact">Get Your Free Quote</Link>
+          <Link href="/contact">Get Your Free Quote Today</Link>
         </Button>
       </div>
     </section>

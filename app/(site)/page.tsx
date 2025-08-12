@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Rocket, ShieldCheck, Zap, Search, Smartphone, Headphones, Award, Sparkles } from "lucide-react"
+import { Rocket, ShieldCheck, Zap, Search, Smartphone, Headphones, Award, Sparkles, Code, Globe } from "lucide-react"
 import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
 import FAQ from "@/components/site/faq"
@@ -74,10 +74,129 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services overview */}
+      {/* Core Services Section */}
       <section className="container mx-auto px-4 py-16">
+        <div className="text-center space-y-3 mb-12">
+          <h2 className="text-3xl font-bold">Our Core Services</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            We specialize in three key areas to help your business succeed online
+          </p>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Website Development */}
+          <Card className="border-blue-100 hover:shadow-xl transition-all duration-300 group">
+            <CardHeader className="text-center pb-4">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 group-hover:scale-110 transition-transform">
+                <Code className="h-8 w-8 text-white" />
+              </div>
+              <CardTitle className="text-xl">Website Development</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center space-y-4">
+              <p className="text-slate-600">
+                Custom websites built with modern technologies for optimal performance and user experience.
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-orange-500"></div>
+                  <span>Responsive Design</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-orange-500"></div>
+                  <span>Fast Loading Speed</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-orange-500"></div>
+                  <span>Cross-Browser Compatible</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-orange-500"></div>
+                  <span>Content Management System</span>
+                </div>
+              </div>
+              <Button asChild variant="outline" className="mt-4 bg-transparent">
+                <Link href="/services#website-development">Learn More</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Mobile Development */}
+          <Card className="border-blue-100 hover:shadow-xl transition-all duration-300 group">
+            <CardHeader className="text-center pb-4">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-600 group-hover:scale-110 transition-transform">
+                <Smartphone className="h-8 w-8 text-white" />
+              </div>
+              <CardTitle className="text-xl">Mobile Development</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center space-y-4">
+              <p className="text-slate-600">
+                Mobile-first approach ensuring your website looks perfect on all devices and screen sizes.
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span>Mobile-First Design</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span>Touch-Friendly Interface</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span>Progressive Web Apps</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span>App-Like Experience</span>
+                </div>
+              </div>
+              <Button asChild variant="outline" className="mt-4 bg-transparent">
+                <Link href="/services#mobile-development">Learn More</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* SEO Services */}
+          <Card className="border-blue-100 hover:shadow-xl transition-all duration-300 group">
+            <CardHeader className="text-center pb-4">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-500 to-green-600 group-hover:scale-110 transition-transform">
+                <Search className="h-8 w-8 text-white" />
+              </div>
+              <CardTitle className="text-xl">SEO Optimization</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center space-y-4">
+              <p className="text-slate-600">
+                Get found on Google with our comprehensive SEO strategies and technical optimization.
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span>Keyword Research</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span>On-Page Optimization</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span>Technical SEO</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span>Performance Optimization</span>
+                </div>
+              </div>
+              <Button asChild variant="outline" className="mt-4 bg-transparent">
+                <Link href="/services#seo-optimization">Learn More</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Services overview */}
+      <section className="container mx-auto px-4 py-16 bg-slate-50">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl font-bold">Services tailored to your goals</h2>
+          <h2 className="text-3xl font-bold">Complete Website Solutions</h2>
           <p className="text-slate-600">Everything you need to build, launch, and grow your online presence.</p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -89,7 +208,7 @@ export default function HomePage() {
             },
             {
               title: "Dynamic Websites",
-              icon: Smartphone,
+              icon: Globe,
               desc: "Content-driven sites with CMS integration and custom logic.",
             },
             { title: "E‑commerce", icon: Award, desc: "High-converting stores with modern checkout and analytics." },
@@ -100,9 +219,9 @@ export default function HomePage() {
             },
             { title: "Custom Web Apps", icon: Zap, desc: "Tailored apps that scale with your business." },
             {
-              title: "SEO Optimization",
-              icon: Search,
-              desc: "On‑page SEO, technical audits, and best practices baked in.",
+              title: "Maintenance & Support",
+              icon: ShieldCheck,
+              desc: "Ongoing support, updates, and security monitoring.",
             },
           ].map((s) => (
             <Card key={s.title} className="border-blue-100 hover:shadow-lg transition-shadow">
@@ -124,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio preview */}
-      <section className="border-t bg-slate-50">
+      <section className="border-t bg-white">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center space-y-3">
             <h2 className="text-3xl font-bold">Featured portfolio</h2>
