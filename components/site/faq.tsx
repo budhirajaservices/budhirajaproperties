@@ -12,6 +12,26 @@ const faqs = [
       "Yes! All our websites include mobile development as standard. We use a mobile-first approach to ensure your site looks perfect on all devices - phones, tablets, and desktops.",
   },
   {
+    question: "What's the difference between mobile-responsive and mobile development?",
+    answer:
+      "Mobile-responsive design ensures your website adapts to different screen sizes, while mobile development includes creating Progressive Web Apps (PWAs), touch-optimized interfaces, and app-like experiences that work seamlessly on mobile devices.",
+  },
+  {
+    question: "How do you ensure mobile websites load fast?",
+    answer:
+      "We optimize mobile performance through image compression, lazy loading, code minification, efficient caching strategies, and mobile-first CSS. Our mobile sites typically load in under 3 seconds even on slower connections.",
+  },
+  {
+    question: "Can mobile websites work like native apps?",
+    answer:
+      "Yes! We build Progressive Web Apps (PWAs) that offer app-like features including offline functionality, push notifications, home screen installation, and native device integration while being accessible through web browsers.",
+  },
+  {
+    question: "How do you test mobile compatibility?",
+    answer:
+      "We test on multiple devices and screen sizes including iPhones, Android phones, tablets, and various browsers. We also use mobile testing tools and real device testing to ensure perfect functionality across all mobile platforms.",
+  },
+  {
     question: "What's included in your SEO services?",
     answer:
       "Our SEO services include keyword research, on-page optimization, technical SEO, meta tags, site speed optimization, and Google Analytics setup. We ensure your website is search engine friendly from day one.",

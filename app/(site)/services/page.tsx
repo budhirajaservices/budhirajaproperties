@@ -22,6 +22,16 @@ const services = [
     points: ["CMS-driven content", "User accounts & dashboards", "Integrations & automations"],
   },
   {
+    title: "Mobile Development",
+    icon: Smartphone,
+    points: [
+      "Mobile-first responsive design",
+      "Progressive Web Apps (PWA)",
+      "Touch-friendly interfaces",
+      "Cross-device compatibility",
+    ],
+  },
+  {
     title: "E‑commerce",
     icon: ShoppingCart,
     points: ["Conversion-focused product pages", "Secure checkout & payments", "Analytics & marketing tools"],
