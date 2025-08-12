@@ -1,31 +1,61 @@
-import { ShieldCheck, Zap, ThumbsUp, Users2, Wrench, Search } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Clock, Shield, Users, Zap, Award, HeartHandshake } from "lucide-react"
+
+const features = [
+  {
+    icon: Clock,
+    title: "Fast Delivery",
+    description: "Get your website live in days, not months. We work efficiently without compromising quality.",
+  },
+  {
+    icon: Shield,
+    title: "Secure & Reliable",
+    description: "SSL certificates, regular backups, and security best practices keep your site protected.",
+  },
+  {
+    icon: Users,
+    title: "Expert Team",
+    description: "Our experienced developers and designers create websites that convert visitors into customers.",
+  },
+  {
+    icon: Zap,
+    title: "Performance Focused",
+    description: "Lightning-fast loading speeds and optimized performance for better user experience and SEO.",
+  },
+  {
+    icon: Award,
+    title: "Quality Guaranteed",
+    description: "We stand behind our work with revisions and support to ensure you're completely satisfied.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Ongoing Support",
+    description: "We're here to help even after launch with maintenance, updates, and technical support.",
+  },
+]
 
 export default function WhyChooseUs() {
-  const items = [
-    { icon: Zap, title: "Speed matters", desc: "Optimized builds and best practices for fast load times." },
-    { icon: Search, title: "SEO-first", desc: "Technical SEO & metadata implemented from the start." },
-    { icon: ShieldCheck, title: "Secure by default", desc: "SSL, headers, and dependable dependencies." },
-    { icon: Wrench, title: "Built to grow", desc: "Modular, scalable code you can extend with ease." },
-    { icon: Users2, title: "Human support", desc: "Friendly, responsive communication throughout." },
-    { icon: ThumbsUp, title: "Conversion‑focused", desc: "Clear UX, strong CTAs, and analytics‑ready." },
-  ]
-
   return (
-    <section className="border-t bg-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-3">
-          <h2 className="text-3xl font-bold">Why choose us</h2>
-          <p className="text-slate-600">A partner invested in your results—not just your website.</p>
-        </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((i) => (
-            <div key={i.title} className="rounded-xl border p-6 hover:shadow-md transition-shadow">
-              <i.icon className="h-6 w-6 text-orange-500" />
-              <h3 className="mt-3 font-semibold">{i.title}</h3>
-              <p className="mt-1 text-sm text-slate-600">{i.desc}</p>
-            </div>
-          ))}
-        </div>
+    <section className="container mx-auto px-4 py-16">
+      <div className="text-center space-y-3 mb-12">
+        <h2 className="text-3xl font-bold">Why choose Budhiraja Services?</h2>
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          We combine technical expertise with creative design to deliver websites that not only look great but also
+          drive results for your business.
+        </p>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature, index) => (
+          <Card key={index} className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <feature.icon className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">{feature.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">{feature.description}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   )
