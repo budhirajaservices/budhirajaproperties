@@ -1,0 +1,46 @@
+// app/(site)/contact/page.tsx
+import React from 'react';
+import { Phone, Mail, ExternalLink } from 'react-feather';
+
+const ContactPage = () => {
+  return (
+    <div>
+      <Phone className="h-4 w-4 text-orange-700" />
+      <Mail className="h-4 w-4 text-orange-700" />
+      <ExternalLink className="h-3.5 w-3.5 text-orange-600" />
+      {/* rest of code here */}
+    </div>
+  );
+};
+
+export default ContactPage;
+
+// components/site/contact-cta-section.tsx
+import React from 'react';
+import { MessageCircle } from 'react-feather';
+
+const ContactCTASection = () => {
+  return (
+    <div>
+      <MessageCircle className="mr-2 h-4 w-4 text-orange-500" />
+      {/* rest of code here */}
+    </div>
+  );
+};
+
+export default ContactCTASection;
+
+// components/site/whatsapp-float.tsx
+import React from 'react';
+import { MessageCircle } from 'react-feather';
+
+const WhatsAppFloat = () => {
+  return (
+    <div>
+      <MessageCircle className="h-7 w-7 text-orange-500" />
+      {/* rest of code here */}
+    </div>
+  );
+};
+
+export default WhatsAppFloat;
