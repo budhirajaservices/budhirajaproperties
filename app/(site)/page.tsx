@@ -8,6 +8,7 @@ import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
 import FAQ from "@/components/site/faq"
 import ContactCTASection from "@/components/site/contact-cta-section"
+import MobileShowcase from "@/components/site/mobile-showcase"
 
 export const metadata: Metadata = {
   title: "Professional Website Development | Budhiraja Services",
@@ -159,6 +160,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <MobileShowcase />
 
       <WhyChooseUs />
       <ContactCTASection />
