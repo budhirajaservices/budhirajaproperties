@@ -102,7 +102,7 @@ export default function PricingPage() {
                 </span>
               )}
             </div>
-            <p className="mt-4 text-4xl font-bold text-slate-900">{t.price}</p>
+            <p className="mt-4 text-3xl font-bold text-slate-900">{t.price}</p>
             <ul className="mt-6 space-y-2 text-sm text-slate-600">
               {t.features.map((f) => (
                 <li key={f} className="flex items-center gap-2">
