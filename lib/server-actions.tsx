@@ -155,7 +155,92 @@ export async function submitProposal(_: any, formData: FormData) {
     ok: true,
     message: deliveredToWhatsApp
       ? "Thanks! Your request was sent to our WhatsApp."
-      : "Thanks! Click ‘Send to WhatsApp’ to notify us instantly.",
+      : "Thanks! Click 'Send to WhatsApp' to notify us instantly.",
+    deliveredToWhatsApp,
+    whatsappHref,
+  }
+}
+
+export async function submitPaymentConfirmation(_: any, formData: FormData) {
+  const name = String(formData.get("name") || "").trim()
+  const email = String(formData.get("email") || "").trim()
+  const phone = String(formData.get("phone") || "").trim()
+  const projectReference = String(formData.get("projectReference") || "").trim()
+  const paymentMethod = String(formData.get("paymentMethod") || "").trim()
+  const amount = String(formData.get("amount") || "").trim()
+  const transactionId = String(formData.get("transactionId") || "").trim()
+  const paymentDate = String(formData.get("paymentDate") || "").trim()
+  const notes = String(formData.get("notes") || "").trim()
+  const honey = String(formData.get("website") || "")
+  const source = String(formData.get("source") || "").trim()
+  const referrer = String(formData.get("referrer") || "").trim()
+
+  if (honey) {
+    return { ok: false, message: "Submission blocked." }
+  }
+  if (!name || !isEmail(email) || !projectReference || !paymentMethod || !amount || !transactionId || !paymentDate) {
+    return { ok: false, message: "Please complete all required fields." }
+  }
+
+  const lines = [
+    "🔔 PAYMENT CONFIRMATION",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    phone ? `Phone: ${phone}` : "",
+    `Project Reference: ${projectReference}`,
+    `Payment Method: ${paymentMethod}`,
+    `Amount Paid: ${amount}`,
+    `Transaction ID: ${transactionId}`,
+    `Payment Date: ${paymentDate}`,
+    notes ? `Notes: ${notes}` : "",
+    source ? `Source: ${source}` : "",
+    referrer ? `Referrer: ${referrer}` : "",
+  ].filter(Boolean)
+
+  const body = lines.join("\n")
+
+  const adminNumber = (process.env.ADMIN_WHATSAPP || "919518126610").replace(/[^\d]/g, "")
+  const adminEmail = process.env.ADMIN_EMAIL || "budhirajaservices@gmail.com"
+
+  let deliveredToWhatsApp = false
+  const waAttempt = await sendWhatsAppViaCloudAPI({ to: adminNumber, body })
+  if (waAttempt.ok) deliveredToWhatsApp = true
+
+  // Build mobile-friendly WhatsApp link (api.whatsapp.com)
+  const whatsappHref = `https://api.whatsapp.com/send?phone=${adminNumber}&text=${encodeURIComponent(body)}`
+
+  // Optional automatic email (no fallback button in UI)
+  const emailAttempt = await sendEmailViaResend({
+    to: adminEmail,
+    subject: `Payment Confirmation - ${projectReference}`,
+    text: body,
+    html: lines.map((l) => `<div>${l.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>`).join(""),
+    replyTo: email,
+  })
+  const deliveredToEmail = emailAttempt.ok
+
+  await new Promise((r) => setTimeout(r, 200))
+  console.log("Payment confirmation:", {
+    name,
+    email,
+    phone,
+    projectReference,
+    paymentMethod,
+    amount,
+    transactionId,
+    paymentDate,
+    notes,
+    source,
+    referrer,
+    deliveredToWhatsApp,
+    deliveredToEmail,
+  })
+
+  return {
+    ok: true,
+    message: deliveredToWhatsApp
+      ? "Thanks! Payment confirmation sent to our WhatsApp."
+      : "Thanks! Click 'Send to WhatsApp' to notify us instantly.",
     deliveredToWhatsApp,
     whatsappHref,
   }

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Copy, CreditCard, Building, MapPin, DollarSign, Hash, User, Landmark } from "lucide-react"
 import Link from "next/link"
+import PaymentForm from "@/components/site/payment-form"
 
 const paymentDetails = {
   usd: {
@@ -46,7 +47,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 export default function PaymentPageClient() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <header className="text-center mb-12">
           <h1 className="text-3xl font-bold mb-4">Payment Information</h1>
           <p className="text-slate-600 max-w-2xl mx-auto">
@@ -54,7 +55,7 @@ export default function PaymentPageClient() {
           </p>
         </header>
 
-        <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           {/* USD Bank Transfer Details */}
           <Card className="border-blue-100">
             <CardHeader>
@@ -219,43 +220,17 @@ export default function PaymentPageClient() {
             </CardContent>
           </Card>
 
-          {/* Alternative Payment Methods */}
-          <Card className="col-span-full border-blue-100">
+          {/* Payment Confirmation Form */}
+          <Card className="border-orange-100">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5 text-orange-500" />
-                Other Payment Options
+                Payment Confirmation
               </CardTitle>
-              <p className="text-sm text-slate-600">Additional secure payment methods</p>
+              <p className="text-sm text-slate-600">Notify us after making payment</p>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-3">
-                <div className="p-4 border border-slate-200 rounded-lg hover:border-orange-200 transition-colors">
-                  <h3 className="font-medium mb-2">PayPal</h3>
-                  <p className="text-sm text-slate-600 mb-3">Send payment to: budhirajaservices@gmail.com</p>
-                  <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                    <a href="https://paypal.me/budhirajaservices" target="_blank" rel="noopener noreferrer">
-                      Pay with PayPal
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="p-4 border border-slate-200 rounded-lg hover:border-orange-200 transition-colors">
-                  <h3 className="font-medium mb-2">Wise (International)</h3>
-                  <p className="text-sm text-slate-600 mb-3">Low-fee international transfers</p>
-                  <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                    <a href="/contact">Request Wise Details</a>
-                  </Button>
-                </div>
-
-                <div className="p-4 border border-slate-200 rounded-lg hover:border-orange-200 transition-colors">
-                  <h3 className="font-medium mb-2">Cryptocurrency</h3>
-                  <p className="text-sm text-slate-600 mb-3">Bitcoin, Ethereum, USDC accepted</p>
-                  <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                    <a href="/contact">Request Crypto Address</a>
-                  </Button>
-                </div>
-              </div>
+            <CardContent>
+              <PaymentForm />
             </CardContent>
           </Card>
         </div>
@@ -278,7 +253,7 @@ export default function PaymentPageClient() {
               <div>
                 <h4 className="font-medium mb-2">After Payment:</h4>
                 <ul className="space-y-1 text-sm">
-                  <li>• Send payment confirmation to us</li>
+                  <li>• Fill out the payment confirmation form</li>
                   <li>• Include transaction ID and reference</li>
                   <li>• We'll confirm receipt within 24 hours</li>
                 </ul>
