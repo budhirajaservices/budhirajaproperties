@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Copy, CreditCard, Building, MapPin, DollarSign, Hash, User, Landmark } from "lucide-react"
+import { Copy, CreditCard, Building, DollarSign, Hash, User, Landmark } from "lucide-react"
 import Link from "next/link"
 import PaymentForm from "@/components/site/payment-form"
 
@@ -13,7 +13,6 @@ const paymentDetails = {
     routingNumber: "026073150",
     accountNumber: "8333873912",
     bankName: "Community Federal Savings Bank",
-    beneficiaryAddress: "5 Penn Plaza, 14th Floor, New York, NY 10001, US",
     currency: "USD",
   },
   eur: {
@@ -22,7 +21,6 @@ const paymentDetails = {
     iban: "DE02202208000058059678",
     bicSwift: "SXPYDEHH",
     bankName: "Banking Circle",
-    beneficiaryAddress: "Banking Circle S.A. – German Branch, Maximilianstraße 54, 80538 München",
     currency: "EUR",
   },
 }
@@ -121,19 +119,6 @@ export default function PaymentPageClient() {
                     <CopyButton text={paymentDetails.usd.currency} label="Currency" />
                   </div>
                 </div>
-
-                <div className="p-3 bg-slate-50 rounded-lg">
-                  <div className="flex items-start gap-2 mb-2">
-                    <MapPin className="h-4 w-4 text-slate-500 mt-0.5" />
-                    <span className="text-sm font-medium">Beneficiary Address</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="font-mono text-sm text-slate-700 flex-1">
-                      {paymentDetails.usd.beneficiaryAddress}
-                    </span>
-                    <CopyButton text={paymentDetails.usd.beneficiaryAddress} label="Address" />
-                  </div>
-                </div>
               </div>
             </CardContent>
           </Card>
@@ -201,19 +186,6 @@ export default function PaymentPageClient() {
                   <div className="flex items-center">
                     <span className="font-mono text-sm">{paymentDetails.eur.currency}</span>
                     <CopyButton text={paymentDetails.eur.currency} label="Currency" />
-                  </div>
-                </div>
-
-                <div className="p-3 bg-slate-50 rounded-lg">
-                  <div className="flex items-start gap-2 mb-2">
-                    <MapPin className="h-4 w-4 text-slate-500 mt-0.5" />
-                    <span className="text-sm font-medium">Beneficiary Address</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="font-mono text-sm text-slate-700 flex-1">
-                      {paymentDetails.eur.beneficiaryAddress}
-                    </span>
-                    <CopyButton text={paymentDetails.eur.beneficiaryAddress} label="Address" />
                   </div>
                 </div>
               </div>

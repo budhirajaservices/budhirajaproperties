@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import { useActionState } from "react"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { submitPaymentConfirmation } from "@/lib/server-actions"
 import { useFormStatus } from "react-dom"
@@ -109,13 +108,6 @@ export default function PaymentForm() {
           Payment Date
         </label>
         <Input id="paymentDate" name="paymentDate" type="date" required />
-      </div>
-
-      <div className="grid gap-1">
-        <label htmlFor="notes" className="text-sm font-medium">
-          Additional Notes (optional)
-        </label>
-        <Textarea id="notes" name="notes" placeholder="Any additional information about the payment..." rows={3} />
       </div>
 
       {/* Honeypot (do not rename) */}
