@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const tiers = [
   {
     name: "Starter",
-    price: "₹7,000",
+    price: "$119 + $30 tax",
     highlight: "Best for landing pages",
     features: [
       "Logo",
@@ -32,7 +32,7 @@ const tiers = [
   },
   {
     name: "Business",
-    price: "₹15,000",
+    price: "$209 + $30 tax",
     highlight: "Most popular",
     features: [
       "Logo",
@@ -55,7 +55,7 @@ const tiers = [
   },
   {
     name: "Business Pro",
-    price: "₹25,000",
+    price: "$319 + $30 tax",
     highlight: "Complex & custom",
     features: [
       "Logo",
