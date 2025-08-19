@@ -9,6 +9,7 @@ const menuItems = [
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Pricing", href: "/pricing" },
+  { name: "Payment", href: "/payment" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ]

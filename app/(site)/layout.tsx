@@ -76,6 +76,9 @@ export default function RootLayout({
                 <a href="/pricing" className="transition-colors hover:text-orange-600">
                   Pricing
                 </a>
+                <a href="/payment" className="transition-colors hover:text-orange-600">
+                  Payment
+                </a>
                 <a href="/about" className="transition-colors hover:text-orange-600">
                   About
                 </a>
@@ -125,6 +128,11 @@ export default function RootLayout({
                     <li>
                       <a href="/pricing" className="text-slate-600 hover:text-orange-600">
                         Pricing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/payment" className="text-slate-600 hover:text-orange-600">
+                        Payment
                       </a>
                     </li>
                   </ul>
