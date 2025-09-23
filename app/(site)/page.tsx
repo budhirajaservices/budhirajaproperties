@@ -3,7 +3,22 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Rocket, ShieldCheck, Zap, Search, Smartphone, Headphones, Award, Sparkles, Code, Globe } from "lucide-react"
+import {
+  Rocket,
+  ShieldCheck,
+  Zap,
+  Search,
+  Smartphone,
+  Headphones,
+  Award,
+  Sparkles,
+  Code,
+  Globe,
+  Play,
+  TrendingUp,
+  ThumbsUp,
+  MessageCircle,
+} from "lucide-react"
 import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
 import FAQ from "@/components/site/faq"
@@ -238,6 +253,132 @@ export default function HomePage() {
         <div className="mt-8 text-center">
           <Button asChild variant="link" className="text-orange-700">
             <Link href="/services">Explore all services →</Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Social growth & monetization */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl font-bold">Social growth & monetization</h2>
+          <p className="text-slate-600">
+            Ethical, white‑hat strategies to grow your audience and unlock monetization across key platforms.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <Play className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">YouTube Monetization</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Eligibility audit (1k subs + 4k watch hours)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Policy compliance & AdSense linking
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  SEO for titles, tags & thumbnails
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Content plan & analytics
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <TrendingUp className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Instagram Followers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Organic campaigns & hashtag strategy
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Reels optimization & content calendar
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Giveaways & influencer collabs
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Monthly analytics & insights
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <ThumbsUp className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Facebook Followers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Page optimization & branding
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  High‑engagement content plan
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Boosted posts setup (optional)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Community & groups growth
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <MessageCircle className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">WhatsApp Channel Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Channel setup & branding
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Deep link & QR code assets
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Cross‑promotion funnels & automations
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Compliance & anti‑spam best practices
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button asChild className="bg-orange-600 hover:bg-orange-700">
+            <a href="/proposal">Request a growth plan</a>
           </Button>
         </div>
       </section>
