@@ -1,12 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useActionState } from "react"
+import { useEffect, useState, useTransition, type FormEvent } from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { submitProposal } from "@/lib/server-actions"
-import { useFormStatus } from "react-dom"
 import { MessageCircle } from "lucide-react"
 
 type ProposalState = {
@@ -39,12 +37,13 @@ const features = [
 ]
 
 export default function ProposalForm() {
-  const [state, formAction] = useActionState<ProposalState, FormData>(submitProposal, {
+  const [state, setState] = useState<ProposalState>({
     ok: false,
     message: "",
     deliveredToWhatsApp: false,
     whatsappHref: "",
   })
+  const [isPending, startTransition] = useTransition()
 
   const [source, setSource] = useState("")
   const [referrer, setReferrer] = useState("")
@@ -58,8 +57,18 @@ export default function ProposalForm() {
     } catch {}
   }, [])
 
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const data = new FormData(form)
+    startTransition(async () => {
+      const result = await submitProposal(undefined, data)
+      setState(result)
+    })
+  }
+
   return (
-    <form action={formAction} className="grid gap-4">
+    <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-1 md:grid-cols-2 md:gap-4">
         <div className="grid gap-1">
           <label htmlFor="name" className="text-sm font-medium">
@@ -174,11 +183,13 @@ export default function ProposalForm() {
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       {/* Source attribution */}
-      <input type="hidden" name="source" value={source || "Proposal page"} />
-      <input type="hidden" name="referrer" value={referrer} />
+      <input type="hidden" name="source" value={source || "Proposal page"} readOnly />
+      <input type="hidden" name="referrer" value={referrer} readOnly />
 
       <div className="flex flex-wrap items-center gap-3">
-        <SubmitButton />
+        <Button type="submit" className="bg-orange-600 hover:bg-orange-700" disabled={isPending}>
+          {isPending ? "Submitting..." : "Request proposal"}
+        </Button>
         {state.message && (
           <span className={`text-sm ${state.ok ? "text-green-600" : "text-red-600"}`}>{state.message}</span>
         )}
@@ -200,14 +211,5 @@ export default function ProposalForm() {
         </div>
       ) : null}
     </form>
-  )
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <Button type="submit" className="bg-orange-600 hover:bg-orange-700" disabled={pending}>
-      {pending ? "Submitting..." : "Request proposal"}
-    </Button>
   )
 }
