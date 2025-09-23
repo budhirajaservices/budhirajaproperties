@@ -19,6 +19,7 @@ import {
   ThumbsUp,
   MessageCircle,
   BarChart3,
+  MapPin,
 } from "lucide-react"
 import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
@@ -267,7 +268,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card className="border-blue-100 hover:shadow-lg transition-shadow">
             <CardHeader className="flex flex-row items-center gap-3">
               <Play className="h-6 w-6 text-orange-500" />
@@ -398,6 +399,33 @@ export default function HomePage() {
                 <li className="flex items-start gap-2">
                   <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
                   Analytics tracking & conversion funnels
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <MapPin className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Google Business Profile Growth</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Profile optimization (name, categories, services)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Posts & updates schedule with UTM tracking
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Reviews strategy & response templates
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Local citations & map rankings (white‑hat)
                 </li>
               </ul>
             </CardContent>
