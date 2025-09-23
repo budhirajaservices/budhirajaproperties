@@ -18,6 +18,7 @@ import {
   TrendingUp,
   ThumbsUp,
   MessageCircle,
+  BarChart3,
 } from "lucide-react"
 import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
@@ -370,6 +371,33 @@ export default function HomePage() {
                 <li className="flex items-start gap-2">
                   <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
                   Compliance & anti‑spam best practices
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <BarChart3 className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Website Traffic Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Technical SEO fixes & Core Web Vitals
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Content plan: blogs & landing pages
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Backlinks & directory listings (white‑hat)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Analytics tracking & conversion funnels
                 </li>
               </ul>
             </CardContent>

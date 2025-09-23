@@ -12,6 +12,7 @@ import {
   TrendingUp,
   ThumbsUp,
   MessageCircle,
+  BarChart3,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -62,8 +63,6 @@ const services = [
     icon: Search,
     points: ["On‑page SEO & metadata", "Technical health checks", "Performance & Core Web Vitals"],
   },
-
-  // New Social Growth Services
   {
     title: "YouTube Channel Monetization",
     icon: Play,
@@ -102,6 +101,16 @@ const services = [
       "Deep link & QR promotion assets",
       "Cross‑promotion funnels & automations",
       "Compliance & anti‑spam best practices",
+    ],
+  },
+  {
+    title: "Website Traffic Growth",
+    icon: BarChart3,
+    points: [
+      "Technical SEO and site health",
+      "Content strategy (blogs, landing pages)",
+      "Backlink outreach (white‑hat)",
+      "Performance & Core Web Vitals improvements",
     ],
   },
 ]
