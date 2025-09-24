@@ -14,6 +14,11 @@ type ProposalState = {
   whatsappHref?: string
 }
 
+type ProposalFormProps = {
+  initialServiceType?: string
+  selectedGrowthPlan?: string
+}
+
 const projectTypes = [
   "Static Website",
   "Dynamic Website / CMS",
@@ -36,7 +41,7 @@ const features = [
   "Integrations (CRM, Zapier, etc.)",
 ]
 
-export default function ProposalForm() {
+export default function ProposalForm({ initialServiceType, selectedGrowthPlan }: ProposalFormProps) {
   const [state, setState] = useState<ProposalState>({
     ok: false,
     message: "",
@@ -69,6 +74,13 @@ export default function ProposalForm() {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
+      {selectedGrowthPlan ? (
+        <div className="rounded-lg border border-dashed border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
+          <p className="font-medium">You selected: {selectedGrowthPlan}</p>
+          <p className="mt-1">Let us know your goals so we can tailor the campaign to your brand.</p>
+        </div>
+      ) : null}
+
       <div className="grid gap-1 md:grid-cols-2 md:gap-4">
         <div className="grid gap-1">
           <label htmlFor="name" className="text-sm font-medium">
@@ -173,7 +185,7 @@ export default function ProposalForm() {
         <Textarea
           id="goals"
           name="goals"
-          placeholder="What are you trying to achieve? Any specific pages, examples, or must‑have features?"
+          placeholder="Tell us about your goals, target audience, current challenges, and any must-have deliverables."
           rows={5}
           required
         />
@@ -185,6 +197,10 @@ export default function ProposalForm() {
       {/* Source attribution */}
       <input type="hidden" name="source" value={source || "Proposal page"} readOnly />
       <input type="hidden" name="referrer" value={referrer} readOnly />
+
+      {/* Extra context for backend */}
+      <input type="hidden" name="serviceType" value={initialServiceType || ""} readOnly />
+      <input type="hidden" name="growthPlan" value={selectedGrowthPlan || ""} readOnly />
 
       <div className="flex flex-wrap items-center gap-3">
         <Button type="submit" className="bg-orange-600 hover:bg-orange-700" disabled={isPending}>

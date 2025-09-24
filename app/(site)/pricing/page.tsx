@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { Check, Play, TrendingUp, ThumbsUp, MessageCircle, BarChart3, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -84,80 +85,83 @@ const growthPlans = [
     price: "$249 + $30 tax",
     highlight: "Unlock AdSense fast",
     icon: Play,
-    features: [
-      "Eligibility audit (1k subs + 4k watch-hours)",
-      "Channel policy & monetization compliance",
-      "AdSense linking & payout setup",
-      "SEO for titles, tags & thumbnails",
-      "30-day content plan & analytics dashboard",
-    ],
   },
   {
     name: "Instagram Followers Boost",
     price: "$199 + $30 tax",
     highlight: "Organic growth",
     icon: TrendingUp,
-    features: [
-      "Reels & stories content calendar",
-      "Hashtag clusters & SEO captions",
-      "Influencer collab/giveaway playbook",
-      "Daily engagement & community scripts",
-      "Weekly analytics & growth report",
-    ],
   },
   {
     name: "Facebook Community Growth",
     price: "$179 + $30 tax",
     highlight: "Build loyal fans",
     icon: ThumbsUp,
-    features: [
-      "Page optimization & branding overhaul",
-      "High-engagement post templates",
-      "Meta Ads boost setup (optional)",
-      "Groups & community activation plan",
-      "Comment/DM response guidelines",
-    ],
   },
   {
     name: "WhatsApp Channel Expansion",
     price: "$149 + $30 tax",
     highlight: "Instant reach",
     icon: MessageCircle,
-    features: [
-      "Channel setup & custom branding",
-      "Deep link, QR & landing page assets",
-      "Broadcast calendar & automation ideas",
-      "Cross-promotion funnels & scripts",
-      "Compliance & anti-spam checklist",
-    ],
   },
   {
     name: "Website Traffic Accelerator",
     price: "$289 + $30 tax",
     highlight: "More visitors",
     icon: BarChart3,
-    features: [
-      "Technical SEO fixes & Core Web Vitals",
-      "Blog & landing page content roadmap",
-      "White-hat backlinks & citations",
-      "Analytics/GA4 goals & conversion funnels",
-      "Monthly performance + growth report",
-    ],
   },
   {
     name: "Google Business Profile Boost",
     price: "$129 + $30 tax",
     highlight: "Dominate local search",
     icon: MapPin,
-    features: [
-      "Profile audit & optimization checklist",
-      "Service, product & Q&A enhancements",
-      "Review generation templates & flows",
-      "Weekly posts & UTM tracking plan",
-      "Local citations & map-pack strategy",
-    ],
   },
 ]
+
+const growthPlanFeatures: Record<string, string[]> = {
+  "YouTube Monetization Sprint": [
+    "Eligibility audit (1k subs + 4k watch-hours)",
+    "Channel policy & monetization compliance",
+    "AdSense linking & payout setup",
+    "SEO for titles, tags & thumbnails",
+    "30-day content plan & analytics dashboard",
+  ],
+  "Instagram Followers Boost": [
+    "Reels & stories content calendar",
+    "Hashtag clusters & SEO captions",
+    "Influencer collab/giveaway playbook",
+    "Daily engagement & community scripts",
+    "Weekly analytics & growth report",
+  ],
+  "Facebook Community Growth": [
+    "Page optimization & branding overhaul",
+    "High-engagement post templates",
+    "Meta Ads boost setup (optional)",
+    "Groups & community activation plan",
+    "Comment/DM response guidelines",
+  ],
+  "WhatsApp Channel Expansion": [
+    "Channel setup & custom branding",
+    "Deep link, QR & landing page assets",
+    "Broadcast calendar & automation ideas",
+    "Cross-promotion funnels & scripts",
+    "Compliance & anti-spam checklist",
+  ],
+  "Website Traffic Accelerator": [
+    "Technical SEO fixes & Core Web Vitals",
+    "Blog & landing page content roadmap",
+    "White-hat backlinks & citations",
+    "Analytics/GA4 goals & conversion funnels",
+    "Monthly performance + growth report",
+  ],
+  "Google Business Profile Boost": [
+    "Profile audit & optimization checklist",
+    "Service, product & Q&A enhancements",
+    "Review generation templates & flows",
+    "Weekly posts & UTM tracking plan",
+    "Local citations & map-pack strategy",
+  ],
+}
 
 export default function PricingPage() {
   return (
@@ -198,7 +202,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <Button asChild className="bg-orange-600 hover:bg-orange-700">
-                  <a href="/contact">{tier.cta}</a>
+                  <Link href="/contact">{tier.cta}</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -240,7 +244,7 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent className="flex flex-col gap-6">
                 <ul className="space-y-2 text-sm text-slate-600">
-                  {plan.features.map((feature) => (
+                  {(growthPlanFeatures[plan.name] ?? []).map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-orange-600" />
                       <span>{feature}</span>
@@ -252,7 +256,7 @@ export default function PricingPage() {
                   variant="outline"
                   className="border-orange-600 text-orange-600 hover:bg-orange-50 bg-transparent"
                 >
-                  <a href="/proposal?service=growth">Book this plan</a>
+                  <Link href={`/proposal/growth?plan=${encodeURIComponent(plan.name)}`}>Book this plan</Link>
                 </Button>
               </CardContent>
             </Card>
