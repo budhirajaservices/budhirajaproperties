@@ -24,9 +24,10 @@ const timeframes = ["1 month sprint", "3 month growth plan", "6 month retainer",
 
 type GrowthProposalFormProps = {
   selectedPlan?: string
+  selectedPlanPrice?: string
 }
 
-export default function GrowthProposalForm({ selectedPlan = "" }: GrowthProposalFormProps) {
+export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
   const [state, setState] = useState<GrowthProposalState>({
     ok: false,
     message: "",
@@ -59,6 +60,13 @@ export default function GrowthProposalForm({ selectedPlan = "" }: GrowthProposal
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
+      {(selectedPlan || selectedPlanPrice) && (
+        <div className="rounded-lg border border-dashed border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
+          {selectedPlan ? <p className="font-medium">Plan: {selectedPlan}</p> : null}
+          {selectedPlanPrice ? <p className="mt-1">Price: {selectedPlanPrice}</p> : null}
+        </div>
+      )}
+
       <div className="grid gap-1 md:grid-cols-2 md:gap-4">
         <div className="grid gap-1">
           <label htmlFor="name" className="text-sm font-medium">
@@ -211,6 +219,7 @@ export default function GrowthProposalForm({ selectedPlan = "" }: GrowthProposal
       <input type="hidden" name="source" value={source || "Growth proposal page"} readOnly />
       <input type="hidden" name="referrer" value={referrer} readOnly />
       <input type="hidden" name="growthPlan" value={selectedPlan} readOnly />
+      <input type="hidden" name="planPrice" value={selectedPlanPrice} readOnly />
 
       <div className="flex flex-wrap items-center gap-3">
         <Button type="submit" className="bg-orange-600 hover:bg-orange-700" disabled={isPending}>

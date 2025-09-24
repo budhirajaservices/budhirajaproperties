@@ -177,6 +177,7 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
   const timeframe = String(formData.get("timeframe") || "").trim()
   const goals = String(formData.get("goals") || "").trim()
   const growthPlan = String(formData.get("growthPlan") || "").trim()
+  const planPrice = String(formData.get("planPrice") || "").trim()
   const honey = String(formData.get("website") || "")
   const source = String(formData.get("source") || "").trim()
   const referrer = String(formData.get("referrer") || "").trim()
@@ -193,6 +194,7 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
     `Phone: ${phone}`,
     brand ? `Brand: ${brand}` : "",
     growthPlan ? `Selected plan: ${growthPlan}` : "",
+    planPrice ? `Plan price: ${planPrice}` : "",
     `Primary platform: ${primaryPlatform}`,
     handles ? `Handles / links: ${handles}` : "",
     selectedChannels.length ? `Platforms to grow: ${selectedChannels.join(", ")}` : "",
@@ -241,6 +243,7 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
     monthlyBudget,
     timeframe,
     growthPlan,
+    planPrice,
     source,
     referrer,
     deliveredToWhatsApp,

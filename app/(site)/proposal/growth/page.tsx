@@ -7,6 +7,15 @@ export const metadata: Metadata = {
     "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
 }
 
+const growthPlanPricing: Record<string, string> = {
+  "YouTube Monetization Sprint": "$249 + $30 tax",
+  "Instagram Followers Boost": "$199 + $30 tax",
+  "Facebook Community Growth": "$179 + $30 tax",
+  "WhatsApp Channel Expansion": "$149 + $30 tax",
+  "Website Traffic Accelerator": "$289 + $30 tax",
+  "Google Business Profile Boost": "$129 + $30 tax",
+}
+
 type GrowthProposalPageProps = {
   searchParams?: {
     plan?: string
@@ -15,6 +24,7 @@ type GrowthProposalPageProps = {
 
 export default function GrowthProposalPage({ searchParams }: GrowthProposalPageProps) {
   const selectedPlan = searchParams?.plan ? decodeURIComponent(searchParams.plan) : ""
+  const selectedPlanPrice = selectedPlan ? (growthPlanPricing[selectedPlan] ?? "") : ""
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -29,7 +39,8 @@ export default function GrowthProposalPage({ searchParams }: GrowthProposalPageP
           {selectedPlan ? (
             <div className="mx-auto mt-4 max-w-xl rounded-lg border border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
               <p className="font-medium">Selected plan: {selectedPlan}</p>
-              <p className="mt-1">
+              {selectedPlanPrice ? <p className="mt-1 text-orange-600">Price: {selectedPlanPrice}</p> : null}
+              <p className="mt-2">
                 Give us campaign context so we can tailor strategy, creatives, and reporting to your brand.
               </p>
             </div>
@@ -37,7 +48,7 @@ export default function GrowthProposalPage({ searchParams }: GrowthProposalPageP
         </header>
 
         <div className="mt-8 rounded-xl border p-6 shadow-sm">
-          <GrowthProposalForm selectedPlan={selectedPlan} />
+          <GrowthProposalForm selectedPlan={selectedPlan} selectedPlanPrice={selectedPlanPrice} />
         </div>
       </div>
     </div>
