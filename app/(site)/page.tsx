@@ -20,6 +20,10 @@ import {
   MessageCircle,
   BarChart3,
   MapPin,
+  X,
+  Send,
+  AtSign,
+  Music,
 } from "lucide-react"
 import Testimonials from "@/components/site/testimonials"
 import WhyChooseUs from "@/components/site/why-choose-us"
@@ -264,7 +268,8 @@ export default function HomePage() {
         <div className="text-center space-y-3">
           <h2 className="text-3xl font-bold">Social growth & monetization</h2>
           <p className="text-slate-600">
-            Ethical, white‑hat strategies to grow your audience and unlock monetization across key platforms.
+            Ethical, white‑hat strategies to grow your audience and unlock monetization across key platforms, including
+            YouTube, Instagram, Facebook, WhatsApp, Google Business Profile, Twitter, Telegram, Threads, and Spotify.
           </p>
         </div>
 
@@ -426,6 +431,114 @@ export default function HomePage() {
                 <li className="flex items-start gap-2">
                   <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
                   Local citations & map rankings (white‑hat)
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <X className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Twitter Profile Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Real Followers Growth
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Increased Tweet Engagement (Likes + Retweets)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Trending Hashtag Strategy
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Profile Branding & Optimization
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <Send className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Telegram Profile Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Channel Members / Group Members Growth
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Active & Engaged Audience
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Content Sharing Strategy
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Automation & Bot Setup Guidance
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <AtSign className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Threads Profile Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Real Followers Growth
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Content Engagement (Likes + Comments)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Hashtag & Trend Optimization
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Profile Branding Strategy
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <Music className="h-6 w-6 text-orange-500" />
+              <CardTitle className="text-lg">Spotify Profile Boost</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Song Streams Growth (Real Listeners)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Playlist Placement Support
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Artist Profile Optimization
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                  Global Reach Expansion
                 </li>
               </ul>
             </CardContent>

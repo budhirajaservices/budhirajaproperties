@@ -13,13 +13,17 @@ import {
   ThumbsUp,
   MessageCircle,
   BarChart3,
+  X,
+  Send,
+  AtSign,
+  Music,
 } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Services | Budhiraja Services",
   description:
-    "Static and dynamic websites, e‑commerce, WordPress, custom web apps, SEO optimization, and social channel growth services.",
+    "Static and dynamic websites, e‑commerce, WordPress, custom web apps, SEO optimization, social channel growth, and monetization services.",
 }
 
 const services = [
@@ -64,53 +68,102 @@ const services = [
     points: ["On‑page SEO & metadata", "Technical health checks", "Performance & Core Web Vitals"],
   },
   {
-    title: "YouTube Channel Monetization",
+    title: "YouTube Monetization Sprint",
     icon: Play,
     points: [
-      "Eligibility audit (1k subs + 4k watch hours)",
-      "AdSense linking & policy compliance",
-      "SEO for titles, tags & thumbnails",
-      "Content strategy & posting schedule",
+      "1000 Subscribers + 4000 Watch Hours support",
+      "Organic & Safe Growth Strategy",
+      "SEO Optimized Titles & Tags Guidance",
+      "Video CTR & Audience Retention Tips",
+      "Monetization Approval Support",
     ],
   },
   {
-    title: "Instagram Followers Growth",
+    title: "Instagram Followers Boost",
     icon: TrendingUp,
     points: [
-      "Organic campaigns & content calendar",
-      "Reels optimization & hashtag strategy",
-      "Influencer collabs & giveaways",
-      "Monthly analytics & insights",
+      "Real & Active Followers Growth",
+      "Targeted Audience (India/Global)",
+      "Engagement Boost (Likes + Comments)",
+      "Consistent Growth Guarantee",
+      "Profile Optimization Support",
     ],
   },
   {
-    title: "Facebook Followers Growth",
+    title: "Facebook Community Growth",
     icon: ThumbsUp,
     points: [
-      "Page optimization & branding",
-      "High‑engagement content & Reels plan",
-      "Boosted posts setup (optional)",
-      "Community & groups growth",
+      "Page Likes & Followers Increase",
+      "Targeted Group Members Growth",
+      "Post Engagement Boost",
+      "Ad Campaign Setup Guidance",
+      "Brand Awareness Strategy",
     ],
   },
   {
-    title: "WhatsApp Channel Member Boost",
+    title: "WhatsApp Channel Expansion",
     icon: MessageCircle,
     points: [
-      "Channel setup & branding",
-      "Deep link & QR promotion assets",
-      "Cross‑promotion funnels & automations",
-      "Compliance & anti‑spam best practices",
+      "1000+ Genuine Subscribers Growth",
+      "Direct Engagement with Audience",
+      "Automated Broadcast Setup Guidance",
+      "Increased CTR on Links/Posts",
+      "Retention & Re-engagement Strategy",
     ],
   },
   {
-    title: "Website Traffic Growth",
+    title: "Website Traffic Accelerator",
     icon: BarChart3,
     points: [
-      "Technical SEO and site health",
-      "Content strategy (blogs, landing pages)",
-      "Backlink outreach (white‑hat)",
-      "Performance & Core Web Vitals improvements",
+      "Real Human Traffic (Google + Social Media)",
+      "Targeted Geo Traffic (India/Global)",
+      "SEO Boost + Backlinking",
+      "CTR & Bounce Rate Optimization",
+      "Detailed Analytics Report",
+    ],
+  },
+  {
+    title: "Twitter Profile Boost",
+    icon: X,
+    points: [
+      "Real Followers Growth",
+      "Increased Tweet Engagement (Likes + Retweets)",
+      "Trending Hashtag Strategy",
+      "Profile Branding & Optimization",
+      "Organic Audience Reach",
+    ],
+  },
+  {
+    title: "Telegram Profile Boost",
+    icon: Send,
+    points: [
+      "Channel Members / Group Members Growth",
+      "Active & Engaged Audience",
+      "Content Sharing Strategy",
+      "CTR Improvement",
+      "Automation & Bot Setup Guidance",
+    ],
+  },
+  {
+    title: "Threads Profile Boost",
+    icon: AtSign,
+    points: [
+      "Real Followers Growth",
+      "Content Engagement (Likes + Comments)",
+      "Hashtag & Trend Optimization",
+      "Profile Branding Strategy",
+      "Organic Growth",
+    ],
+  },
+  {
+    title: "Spotify Profile Boost",
+    icon: Music,
+    points: [
+      "Song Streams Growth (Real Listeners)",
+      "Playlist Placement Support",
+      "Artist Profile Optimization",
+      "Global Reach Expansion",
+      "Monthly Analytics Reports",
     ],
   },
 ]
@@ -119,7 +172,7 @@ export default function ServicesPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Website development services</h1>
+        <h1 className="text-3xl font-bold">Our Services</h1>
         <p className="mt-2 text-slate-600">Choose the solutions that match your goals and budget.</p>
       </div>
 
