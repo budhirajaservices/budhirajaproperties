@@ -8,12 +8,15 @@ export const metadata: Metadata = {
 }
 
 const growthPlanPricing: Record<string, string> = {
-  "YouTube Monetization Sprint": "$249 + $30 tax",
-  "Instagram Followers Boost": "$199 + $30 tax",
-  "Facebook Community Growth": "$179 + $30 tax",
-  "WhatsApp Channel Expansion": "$149 + $30 tax",
-  "Website Traffic Accelerator": "$289 + $30 tax",
-  "Google Business Profile Boost": "$129 + $30 tax",
+  "YouTube Monetization Sprint": "$282 + $30 tax",
+  "Instagram Followers Boost": "$68 + $30 tax",
+  "Facebook Community Growth": "$68 + $30 tax",
+  "WhatsApp Channel Expansion": "$144 + $30 tax",
+  "Website Traffic Accelerator": "$12 + $30 tax",
+  "Twitter Profile Boost": "$125 + $30 tax",
+  "Telegram Profile Boost": "$57 + $30 tax",
+  "Threads Profile Boost": "$57 + $30 tax",
+  "Spotify Profile Boost": "$57 + $30 tax",
 }
 
 type GrowthProposalPageProps = {

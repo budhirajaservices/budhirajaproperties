@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Check, Play, TrendingUp, ThumbsUp, MessageCircle, BarChart3, MapPin } from "lucide-react"
+import { Check, Play, TrendingUp, ThumbsUp, MessageCircle, BarChart3, X, Send, AtSign, Music } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -82,84 +82,123 @@ const websiteTiers = [
 const growthPlans = [
   {
     name: "YouTube Monetization Sprint",
-    price: "$249 + $30 tax",
+    price: "$282 + $30 tax",
     highlight: "Unlock AdSense fast",
     icon: Play,
   },
   {
     name: "Instagram Followers Boost",
-    price: "$199 + $30 tax",
+    price: "$68 + $30 tax",
     highlight: "Organic growth",
     icon: TrendingUp,
   },
   {
     name: "Facebook Community Growth",
-    price: "$179 + $30 tax",
+    price: "$68 + $30 tax",
     highlight: "Build loyal fans",
     icon: ThumbsUp,
   },
   {
     name: "WhatsApp Channel Expansion",
-    price: "$149 + $30 tax",
+    price: "$144 + $30 tax",
     highlight: "Instant reach",
     icon: MessageCircle,
   },
   {
     name: "Website Traffic Accelerator",
-    price: "$289 + $30 tax",
+    price: "$12 + $30 tax",
     highlight: "More visitors",
     icon: BarChart3,
   },
   {
-    name: "Google Business Profile Boost",
-    price: "$129 + $30 tax",
-    highlight: "Dominate local search",
-    icon: MapPin,
+    name: "Twitter Profile Boost",
+    price: "$125 + $30 tax",
+    highlight: "Real followers",
+    icon: X,
+  },
+  {
+    name: "Telegram Profile Boost",
+    price: "$57 + $30 tax",
+    highlight: "Engaged audience",
+    icon: Send,
+  },
+  {
+    name: "Threads Profile Boost",
+    price: "$57 + $30 tax",
+    highlight: "Organic growth",
+    icon: AtSign,
+  },
+  {
+    name: "Spotify Profile Boost",
+    price: "$57 + $30 tax",
+    highlight: "Real listeners",
+    icon: Music,
   },
 ]
 
 const growthPlanFeatures: Record<string, string[]> = {
   "YouTube Monetization Sprint": [
-    "Eligibility audit (1k subs + 4k watch-hours)",
-    "Channel policy & monetization compliance",
-    "AdSense linking & payout setup",
-    "SEO for titles, tags & thumbnails",
-    "30-day content plan & analytics dashboard",
+    "1000 Subscribers + 4000 Watch Hours support",
+    "Organic & Safe Growth Strategy",
+    "SEO Optimized Titles & Tags Guidance",
+    "Video CTR & Audience Retention Tips",
+    "Monetization Approval Support",
   ],
   "Instagram Followers Boost": [
-    "Reels & stories content calendar",
-    "Hashtag clusters & SEO captions",
-    "Influencer collab/giveaway playbook",
-    "Daily engagement & community scripts",
-    "Weekly analytics & growth report",
+    "Real & Active Followers Growth",
+    "Targeted Audience (India/Global)",
+    "Engagement Boost (Likes + Comments)",
+    "Consistent Growth Guarantee",
+    "Profile Optimization Support",
   ],
   "Facebook Community Growth": [
-    "Page optimization & branding overhaul",
-    "High-engagement post templates",
-    "Meta Ads boost setup (optional)",
-    "Groups & community activation plan",
-    "Comment/DM response guidelines",
+    "Page Likes & Followers Increase",
+    "Targeted Group Members Growth",
+    "Post Engagement Boost",
+    "Ad Campaign Setup Guidance",
+    "Brand Awareness Strategy",
   ],
   "WhatsApp Channel Expansion": [
-    "Channel setup & custom branding",
-    "Deep link, QR & landing page assets",
-    "Broadcast calendar & automation ideas",
-    "Cross-promotion funnels & scripts",
-    "Compliance & anti-spam checklist",
+    "1000+ Genuine Subscribers Growth",
+    "Direct Engagement with Audience",
+    "Automated Broadcast Setup Guidance",
+    "Increased CTR on Links/Posts",
+    "Retention & Re-engagement Strategy",
   ],
   "Website Traffic Accelerator": [
-    "Technical SEO fixes & Core Web Vitals",
-    "Blog & landing page content roadmap",
-    "White-hat backlinks & citations",
-    "Analytics/GA4 goals & conversion funnels",
-    "Monthly performance + growth report",
+    "Real Human Traffic (Google + Social Media)",
+    "Targeted Geo Traffic (India/Global)",
+    "SEO Boost + Backlinking",
+    "CTR & Bounce Rate Optimization",
+    "Detailed Analytics Report",
   ],
-  "Google Business Profile Boost": [
-    "Profile audit & optimization checklist",
-    "Service, product & Q&A enhancements",
-    "Review generation templates & flows",
-    "Weekly posts & UTM tracking plan",
-    "Local citations & map-pack strategy",
+  "Twitter Profile Boost": [
+    "Real Followers Growth",
+    "Increased Tweet Engagement (Likes + Retweets)",
+    "Trending Hashtag Strategy",
+    "Profile Branding & Optimization",
+    "Organic Audience Reach",
+  ],
+  "Telegram Profile Boost": [
+    "Channel Members / Group Members Growth",
+    "Active & Engaged Audience",
+    "Content Sharing Strategy",
+    "CTR Improvement",
+    "Automation & Bot Setup Guidance",
+  ],
+  "Threads Profile Boost": [
+    "Real Followers Growth",
+    "Content Engagement (Likes + Comments)",
+    "Hashtag & Trend Optimization",
+    "Profile Branding Strategy",
+    "Organic Growth",
+  ],
+  "Spotify Profile Boost": [
+    "Song Streams Growth (Real Listeners)",
+    "Playlist Placement Support",
+    "Artist Profile Optimization",
+    "Global Reach Expansion",
+    "Monthly Analytics Reports",
   ],
 }
 
@@ -219,7 +258,7 @@ export default function PricingPage() {
           <h2 className="text-3xl font-bold">Social growth & monetization pricing</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
             Pair your new website with ethical growth campaigns across YouTube, Instagram, Facebook, WhatsApp, Google
-            Business Profile, and organic traffic.
+            Business Profile, Twitter, Telegram, Threads, and Spotify.
           </p>
         </div>
 
