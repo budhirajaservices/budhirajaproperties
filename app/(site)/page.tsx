@@ -19,7 +19,6 @@ import {
   ThumbsUp,
   MessageCircle,
   BarChart3,
-  MapPin,
   X,
   Send,
   AtSign,
@@ -269,7 +268,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold">Social growth & monetization</h2>
           <p className="text-slate-600">
             Ethical, white‑hat strategies to grow your audience and unlock monetization across key platforms, including
-            YouTube, Instagram, Facebook, WhatsApp, Google Business Profile, Twitter, Telegram, Threads, and Spotify.
+            YouTube, Instagram, Facebook, WhatsApp, Website Traffic, Twitter, Telegram, Threads, and Spotify.
           </p>
         </div>
 
@@ -404,33 +403,6 @@ export default function HomePage() {
                 <li className="flex items-start gap-2">
                   <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
                   Analytics tracking & conversion funnels
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-blue-100 hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-row items-center gap-3">
-              <MapPin className="h-6 w-6 text-orange-500" />
-              <CardTitle className="text-lg">Google Business Profile Growth</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                  Profile optimization (name, categories, services)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                  Posts & updates schedule with UTM tracking
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                  Reviews strategy & response templates
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                  Local citations & map rankings (white‑hat)
                 </li>
               </ul>
             </CardContent>

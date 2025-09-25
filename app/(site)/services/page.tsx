@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
-  Sparkles,
   Smartphone,
   ShoppingCart,
   Wrench,
@@ -23,15 +22,10 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Services | Budhiraja Services",
   description:
-    "Static and dynamic websites, e‑commerce, WordPress, custom web apps, SEO optimization, social channel growth, and monetization services.",
+    "Dynamic websites, e‑commerce, WordPress, custom web apps, SEO optimization, social channel growth, and monetization services.",
 }
 
 const services = [
-  {
-    title: "Static Websites",
-    icon: Sparkles,
-    points: ["Lightning-fast performance", "Clean, modern design", "Ideal for landing pages & portfolios"],
-  },
   {
     title: "Dynamic Websites",
     icon: Smartphone,
