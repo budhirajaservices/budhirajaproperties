@@ -16,11 +16,22 @@ type GrowthProposalState = {
 
 const channels = ["YouTube", "Instagram", "Facebook", "WhatsApp", "Website Traffic", "Google Business Profile", "Other"]
 
-const contentStyles = ["Educational", "Promotional", "Behind the scenes", "Influencer-led", "User generated", "Mixed"]
+const contentStyles = [
+  "Educational",
+  "Promotional",
+  "Behind the scenes",
+  "Influencer-led",
+  "User generated",
+  "Mixed",
+  "Tutorials", // Added
+  "Reviews", // Added
+  "Vlogs", // Added
+  "Short-form video", // Added
+  "Live streams", // Added
+  "Interviews", // Added
+]
 
-const monthlyBudgets = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
-
-const timeframes = ["1 month sprint", "3 month growth plan", "6 month retainer", "Ongoing / custom"]
+const budgets = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"] // Renamed from monthlyBudgets
 
 type GrowthProposalFormProps = {
   selectedPlan?: string
@@ -97,19 +108,12 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
         </div>
       </div>
 
-      <div className="grid gap-1 md:grid-cols-2 md:gap-4">
-        <div className="grid gap-1">
-          <label htmlFor="primaryPlatform" className="text-sm font-medium">
-            Primary platform
-          </label>
-          <Input id="primaryPlatform" name="primaryPlatform" placeholder="e.g., YouTube, Instagram" required />
-        </div>
-        <div className="grid gap-1">
-          <label htmlFor="handles" className="text-sm font-medium">
-            Channel handles / links
-          </label>
-          <Input id="handles" name="handles" placeholder="@brandname or https://channel URL" />
-        </div>
+      {/* Removed Primary platform input */}
+      <div className="grid gap-1">
+        <label htmlFor="handles" className="text-sm font-medium">
+          Channel handles / links
+        </label>
+        <Input id="handles" name="handles" placeholder="@brandname or https://channel URL" />
       </div>
 
       <fieldset className="grid gap-2">
@@ -144,60 +148,44 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
         </div>
       </div>
 
-      <div className="grid gap-1 md:grid-cols-2 md:gap-4">
-        <div className="grid gap-1">
-          <label htmlFor="contentStyle" className="text-sm font-medium">
-            Content style
-          </label>
-          <select
-            id="contentStyle"
-            name="contentStyle"
-            className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
-          >
-            <option value="">Select content style</option>
-            {contentStyles.map((style) => (
-              <option key={style} value={style}>
-                {style}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="grid gap-1">
-          <label htmlFor="monthlyBudget" className="text-sm font-medium">
-            Monthly budget (optional)
-          </label>
-          <select
-            id="monthlyBudget"
-            name="monthlyBudget"
-            className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
-          >
-            <option value="">Select budget</option>
-            {monthlyBudgets.map((budget) => (
-              <option key={budget} value={budget}>
-                {budget}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
       <div className="grid gap-1">
-        <label htmlFor="timeframe" className="text-sm font-medium">
-          Preferred timeline
+        <label htmlFor="contentStyle" className="text-sm font-medium">
+          Content style
         </label>
         <select
-          id="timeframe"
-          name="timeframe"
+          id="contentStyle"
+          name="contentStyle"
           className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
         >
-          <option value="">Select timeframe</option>
-          {timeframes.map((timeframe) => (
-            <option key={timeframe} value={timeframe}>
-              {timeframe}
+          <option value="">Select content style</option>
+          {contentStyles.map((style) => (
+            <option key={style} value={style}>
+              {style}
             </option>
           ))}
         </select>
       </div>
+
+      <div className="grid gap-1">
+        <label htmlFor="budget" className="text-sm font-medium">
+          Budget
+        </label>
+        <select
+          id="budget"
+          name="budget"
+          className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
+          required // Made required
+        >
+          <option value="">Select budget</option>
+          {budgets.map((budget) => (
+            <option key={budget} value={budget}>
+              {budget}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Removed Preferred timeline input */}
 
       <div className="grid gap-1">
         <label htmlFor="goals" className="text-sm font-medium">

@@ -167,14 +167,14 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
   const email = String(formData.get("email") || "").trim()
   const phone = String(formData.get("phone") || "").trim()
   const brand = String(formData.get("brand") || "").trim()
-  const primaryPlatform = String(formData.get("primaryPlatform") || "").trim()
+  // Removed primaryPlatform
   const handles = String(formData.get("handles") || "").trim()
   const selectedChannels = formData.getAll("channels").map((c) => String(c))
   const currentMetrics = String(formData.get("currentMetrics") || "").trim()
   const growthTargets = String(formData.get("growthTargets") || "").trim()
   const contentStyle = String(formData.get("contentStyle") || "").trim()
-  const monthlyBudget = String(formData.get("monthlyBudget") || "").trim()
-  const timeframe = String(formData.get("timeframe") || "").trim()
+  const budget = String(formData.get("budget") || "").trim() // Renamed from monthlyBudget
+  // Removed timeframe
   const goals = String(formData.get("goals") || "").trim()
   const growthPlan = String(formData.get("growthPlan") || "").trim()
   const planPrice = String(formData.get("planPrice") || "").trim()
@@ -183,7 +183,8 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
   const referrer = String(formData.get("referrer") || "").trim()
 
   if (honey) return { ok: false, message: "Submission blocked." }
-  if (!name || !isEmail(email) || !phone || !primaryPlatform || !currentMetrics || !growthTargets || !goals) {
+  // Updated required fields: removed primaryPlatform and timeframe, added budget
+  if (!name || !isEmail(email) || !phone || !currentMetrics || !growthTargets || !goals || !budget) {
     return { ok: false, message: "Please fill all required fields with valid details." }
   }
 
@@ -195,14 +196,14 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
     brand ? `Brand: ${brand}` : "",
     growthPlan ? `Selected plan: ${growthPlan}` : "",
     planPrice ? `Plan price: ${planPrice}` : "",
-    `Primary platform: ${primaryPlatform}`,
+    // Removed Primary platform
     handles ? `Handles / links: ${handles}` : "",
     selectedChannels.length ? `Platforms to grow: ${selectedChannels.join(", ")}` : "",
     `Current metrics: ${currentMetrics}`,
     `Target milestones: ${growthTargets}`,
     contentStyle ? `Content style: ${contentStyle}` : "",
-    monthlyBudget ? `Monthly budget: ${monthlyBudget}` : "",
-    timeframe ? `Preferred timeline: ${timeframe}` : "",
+    budget ? `Budget: ${budget}` : "", // Renamed from monthlyBudget
+    // Removed Preferred timeline
     `Goals & notes: ${goals}`,
     source ? `Source: ${source}` : "",
     referrer ? `Referrer: ${referrer}` : "",
@@ -234,14 +235,14 @@ export async function submitGrowthProposal(_: any, formData: FormData) {
     email,
     phone,
     brand,
-    primaryPlatform,
+    // Removed primaryPlatform
     handles,
     selectedChannels,
     currentMetrics,
     growthTargets,
     contentStyle,
-    monthlyBudget,
-    timeframe,
+    budget, // Renamed from monthlyBudget
+    // Removed timeframe
     growthPlan,
     planPrice,
     source,
