@@ -11,7 +11,6 @@ import {
   Smartphone,
   Headphones,
   Award,
-  Sparkles,
   Code,
   Globe,
   Play,
@@ -221,11 +220,6 @@ export default function HomePage() {
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {
-              title: "Static Websites",
-              icon: Sparkles,
-              desc: "Lightweight, blazing-fast sites perfect for portfolios and landers.",
-            },
             {
               title: "Dynamic Websites",
               icon: Globe,
@@ -519,7 +513,7 @@ export default function HomePage() {
 
         <div className="mt-8 text-center">
           <Button asChild className="bg-orange-600 hover:bg-orange-700">
-            <a href="/proposal">Request a growth plan</a>
+            <a href="/proposal">Book a growth plan</a>
           </Button>
         </div>
       </section>
