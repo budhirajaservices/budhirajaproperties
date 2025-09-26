@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useTransition, type FormEvent } from "react"
+import { useEffect, useState, useTransition, type FormEvent, useMemo } from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
@@ -14,7 +14,18 @@ type GrowthProposalState = {
   whatsappHref?: string
 }
 
-const channels = ["YouTube", "Instagram", "Facebook", "WhatsApp", "Website Traffic", "Google Business Profile", "Other"]
+const channels = [
+  "YouTube Monetization Sprint",
+  "Instagram Followers Boost",
+  "Facebook Community Growth",
+  "WhatsApp Channel Expansion",
+  "Website Traffic Accelerator",
+  "Twitter Profile Boost",
+  "Telegram Profile Boost",
+  "Threads Profile Boost",
+  "Spotify Profile Boost",
+  "Other",
+]
 
 const contentStyles = [
   "Educational",
@@ -31,14 +42,20 @@ const contentStyles = [
   "Interviews", // Added
 ]
 
-const budgets = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"] // Renamed from monthlyBudgets
-
 type GrowthProposalFormProps = {
   selectedPlan?: string
   selectedPlanPrice?: string
 }
 
 export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
+  const computedBudgets = useMemo(() => {
+    const base = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
+    if (selectedPlanPrice && !base.includes(selectedPlanPrice)) {
+      return [selectedPlanPrice, ...base]
+    }
+    return base
+  }, [selectedPlanPrice])
+
   const [state, setState] = useState<GrowthProposalState>({
     ok: false,
     message: "",
@@ -174,12 +191,13 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
           id="budget"
           name="budget"
           className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
-          required // Made required
+          required
+          defaultValue={selectedPlanPrice || ""}
         >
           <option value="">Select budget</option>
-          {budgets.map((budget) => (
+          {computedBudgets.map((budget) => (
             <option key={budget} value={budget}>
-              {budget}
+              {budget === selectedPlanPrice ? `${budget} (selected plan)` : budget}
             </option>
           ))}
         </select>
