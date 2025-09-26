@@ -513,7 +513,7 @@ export default function HomePage() {
 
         <div className="mt-8 text-center">
           <Button asChild className="bg-orange-600 hover:bg-orange-700">
-            <a href="/proposal">Book a growth plan</a>
+            <a href="/proposal/growth">Book a growth plan</a>
           </Button>
         </div>
       </section>
