@@ -24,7 +24,6 @@ const channels = [
   "Telegram Profile Boost",
   "Threads Profile Boost",
   "Spotify Profile Boost",
-  "Other",
 ]
 
 const contentStyles = [
@@ -48,13 +47,20 @@ type GrowthProposalFormProps = {
 }
 
 export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
+  const realPrice = useMemo(() => {
+    if (!selectedPlanPrice) return ""
+    const match = selectedPlanPrice.match(/^\s*([^+]+)/) // take text before " + ..."
+    return (match ? match[1] : selectedPlanPrice).trim()
+  }, [selectedPlanPrice])
+
   const computedBudgets = useMemo(() => {
     const base = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
-    if (selectedPlanPrice && !base.includes(selectedPlanPrice)) {
-      return [selectedPlanPrice, ...base]
-    }
-    return base
-  }, [selectedPlanPrice])
+    const list: string[] = []
+    if (realPrice) list.push(realPrice)
+    if (selectedPlanPrice && selectedPlanPrice !== realPrice) list.push(selectedPlanPrice)
+    for (const b of base) if (!list.includes(b)) list.push(b)
+    return list
+  }, [realPrice, selectedPlanPrice])
 
   const [state, setState] = useState<GrowthProposalState>({
     ok: false,
@@ -192,14 +198,20 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
           name="budget"
           className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
           required
-          defaultValue={selectedPlanPrice || ""}
+          defaultValue={realPrice || selectedPlanPrice || ""}
         >
           <option value="">Select budget</option>
-          {computedBudgets.map((budget) => (
-            <option key={budget} value={budget}>
-              {budget === selectedPlanPrice ? `${budget} (selected plan)` : budget}
-            </option>
-          ))}
+          {computedBudgets.map((budget) => {
+            let label = budget
+            if (realPrice && budget === realPrice) label = `${budget} (plan price)`
+            else if (selectedPlanPrice && budget === selectedPlanPrice && selectedPlanPrice !== realPrice)
+              label = `${budget} (with tax)`
+            return (
+              <option key={budget} value={budget}>
+                {label}
+              </option>
+            )
+          })}
         </select>
       </div>
 
