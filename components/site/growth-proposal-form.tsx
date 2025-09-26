@@ -26,6 +26,18 @@ const channels = [
   "Spotify Profile Boost",
 ]
 
+const ALL_PLAN_PRICES = [
+  "$282 + $30 tax",
+  "$68 + $30 tax",
+  "$68 + $30 tax",
+  "$144 + $30 tax",
+  "$12 + $30 tax",
+  "$125 + $30 tax",
+  "$57 + $30 tax",
+  "$57 + $30 tax",
+  "$57 + $30 tax",
+]
+
 const contentStyles = [
   "Educational",
   "Promotional",
@@ -49,18 +61,25 @@ type GrowthProposalFormProps = {
 export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
   const realPrice = useMemo(() => {
     if (!selectedPlanPrice) return ""
-    const match = selectedPlanPrice.match(/^\s*([^+]+)/) // take text before " + ..."
+    const match = selectedPlanPrice.match(/^\s*([^+]+)/)
     return (match ? match[1] : selectedPlanPrice).trim()
   }, [selectedPlanPrice])
 
-  const computedBudgets = useMemo(() => {
+  const budgetOptions = useMemo(() => {
     const base = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
-    const list: string[] = []
-    if (realPrice) list.push(realPrice)
-    if (selectedPlanPrice && selectedPlanPrice !== realPrice) list.push(selectedPlanPrice)
+    const list: string[] = [...ALL_PLAN_PRICES]
+
+    // Ensure the selected plan price appears (in case it’s not in the list)
+    if (selectedPlanPrice && !list.includes(selectedPlanPrice)) list.unshift(selectedPlanPrice)
+
+    // Optionally include the real price (without "+ $30 tax") for clarity
+    if (realPrice && !list.includes(realPrice)) list.unshift(realPrice)
+
+    // Append base ranges if not already present
     for (const b of base) if (!list.includes(b)) list.push(b)
+
     return list
-  }, [realPrice, selectedPlanPrice])
+  }, [selectedPlanPrice, realPrice])
 
   const [state, setState] = useState<GrowthProposalState>({
     ok: false,
@@ -198,16 +217,15 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
           name="budget"
           className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
           required
-          defaultValue={realPrice || selectedPlanPrice || ""}
+          defaultValue={selectedPlanPrice || realPrice || ""}
         >
           <option value="">Select budget</option>
-          {computedBudgets.map((budget) => {
+          {budgetOptions.map((budget, idx) => {
             let label = budget
-            if (realPrice && budget === realPrice) label = `${budget} (plan price)`
-            else if (selectedPlanPrice && budget === selectedPlanPrice && selectedPlanPrice !== realPrice)
-              label = `${budget} (with tax)`
+            if (selectedPlanPrice && budget === selectedPlanPrice) label = `${budget} (selected plan)`
+            else if (realPrice && budget === realPrice) label = `${budget} (plan price)`
             return (
-              <option key={budget} value={budget}>
+              <option key={`${budget}-${idx}`} value={budget}>
                 {label}
               </option>
             )
