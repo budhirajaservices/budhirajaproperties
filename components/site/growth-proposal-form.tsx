@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useTransition, type FormEvent } from "react"
+import { useEffect, useMemo, useState, useTransition, type FormEvent } from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
@@ -41,11 +41,9 @@ const contentStyles = [
   "Interviews",
 ]
 
-const budgetRanges = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
-
 type GrowthProposalFormProps = {
   selectedPlan?: string
-  selectedPlanPrice?: string
+  selectedPlanPrice?: string // e.g. "$282 + $30 tax"
 }
 
 export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
@@ -69,6 +67,24 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
     } catch {}
   }, [])
 
+  // Derive the real USD price (strip "+ $30 tax" etc.)
+  const realUsdPrice = useMemo(() => {
+    if (!selectedPlanPrice) return ""
+    // Capture the leading dollar amount like "$282" or "$68"
+    const m = selectedPlanPrice.match(/^\s*(\$[\d.]+)/)
+    return m ? m[1] : ""
+  }, [selectedPlanPrice])
+
+  // USD budget ranges + ensure real plan price appears first (when available)
+  const budgetOptions = useMemo(() => {
+    const ranges = ["$50–$100", "$100–$300", "$300–$500", "$500+", "Not set yet"]
+    const list: string[] = [...ranges]
+    if (realUsdPrice && !list.includes(realUsdPrice)) {
+      list.unshift(realUsdPrice)
+    }
+    return list
+  }, [realUsdPrice])
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
@@ -85,6 +101,7 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
         <div className="rounded-lg border border-dashed border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-700">
           {selectedPlan ? <p className="font-medium">Plan: {selectedPlan}</p> : null}
           {selectedPlanPrice ? <p className="mt-1">Price: {selectedPlanPrice}</p> : null}
+          {realUsdPrice ? <p className="mt-1">Plan price (USD): {realUsdPrice}</p> : null}
         </div>
       )}
 
@@ -144,37 +161,27 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
         </div>
       </div>
 
-      <div className="grid gap-1 md:grid-cols-2 md:gap-4">
-        <div className="grid gap-1">
-          <label htmlFor="currentMetrics" className="text-sm font-medium">
-            Current metrics
-          </label>
-          <Input
-            id="currentMetrics"
-            name="currentMetrics"
-            placeholder="Followers, subs, watch hours, traffic etc."
-            required
-          />
-        </div>
-        <div className="grid gap-1">
-          <label htmlFor="growthTargets" className="text-sm font-medium">
-            Target milestones
-          </label>
-          <Input id="growthTargets" name="growthTargets" placeholder="e.g., 10k followers in 3 months" required />
-        </div>
-      </div>
-
+      {/* USD Budget with real plan price shown and pre-selected */}
       <div className="grid gap-1">
         <label htmlFor="budget" className="text-sm font-medium">
-          Budget
+          Budget (USD)
         </label>
-        <select id="budget" name="budget" className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm">
+        <select
+          id="budget"
+          name="budget"
+          className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
+          defaultValue={realUsdPrice || ""}
+        >
           <option value="">Select budget</option>
-          {budgetRanges.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
+          {budgetOptions.map((opt, idx) => {
+            const isPlan = realUsdPrice && opt === realUsdPrice
+            const label = isPlan ? `${opt} (plan price)` : opt
+            return (
+              <option key={`${opt}-${idx}`} value={opt}>
+                {label}
+              </option>
+            )
+          })}
         </select>
       </div>
 
