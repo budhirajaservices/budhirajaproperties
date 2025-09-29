@@ -5,6 +5,22 @@ export const metadata: Metadata = {
   title: "Book a Growth Plan | Budhiraja Services",
   description:
     "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
+  alternates: { canonical: "/proposal/growth" },
+  openGraph: {
+    title: "Book a Growth Plan | Budhiraja Services",
+    description:
+      "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
+    url: "https://budhirajaservices.com/proposal/growth",
+    type: "website",
+    images: [{ url: "/logo-budhiraja-services-wide.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a Growth Plan | Budhiraja Services",
+    description:
+      "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
+    images: ["/logo-budhiraja-services-wide.png"],
+  },
 }
 
 const growthPlanPricing: Record<string, string> = {

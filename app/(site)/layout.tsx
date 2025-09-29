@@ -4,10 +4,12 @@ import { Inter } from "next/font/google"
 import "./globals-site.css"
 import { WhatsAppFloat } from "@/components/site/whatsapp-float"
 import MobileMenu from "@/components/site/mobile-menu"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://budhirajaservices.com"),
   title: {
     default: "Budhiraja Services — Website Development",
     template: "%s | Budhiraja Services",
@@ -25,12 +27,14 @@ export const metadata: Metadata = {
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
     siteName: "Budhiraja Services",
+    images: [{ url: "/logo-budhiraja-services-wide.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Budhiraja Services — Website Development",
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
+    images: ["/logo-budhiraja-services-wide.png"],
   },
   robots: {
     index: true,
@@ -57,13 +61,13 @@ export default function RootLayout({
           <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             <div className="container flex h-24 items-center justify-between">
               <div className="flex items-center space-x-4">
-                <a href="/" className="flex items-center space-x-2">
+                <a href="/" className="flex items-center space-x-2" aria-label="Budhiraja Services Home">
                   <img src="/logo-budhiraja-services-wide.png" alt="Budhiraja Services" className="h-16 w-auto" />
                 </a>
               </div>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+              <nav className="hidden md:flex items-center space-x-6 text-sm font-medium" aria-label="Main">
                 <a href="/" className="transition-colors hover:text-orange-600">
                   Home
                 </a>
@@ -181,6 +185,31 @@ export default function RootLayout({
           </footer>
         </div>
         <WhatsAppFloat />
+
+        {/* Organization JSON-LD for SEO */}
+        <Script
+          id="org-jsonld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Budhiraja Services",
+              url: "https://budhirajaservices.com",
+              logo: "https://budhirajaservices.com/logo-budhiraja-services-wide.png",
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+91-9518126610",
+                  contactType: "customer service",
+                  areaServed: "IN",
+                  availableLanguage: ["English", "Hindi"],
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   )

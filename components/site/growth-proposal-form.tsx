@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useTransition, type FormEvent, useMemo } from "react"
+import { useEffect, useState, useTransition, type FormEvent } from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
@@ -26,18 +26,6 @@ const channels = [
   "Spotify Profile Boost",
 ]
 
-const ALL_PLAN_PRICES = [
-  "$282 + $30 tax",
-  "$68 + $30 tax",
-  "$68 + $30 tax",
-  "$144 + $30 tax",
-  "$12 + $30 tax",
-  "$125 + $30 tax",
-  "$57 + $30 tax",
-  "$57 + $30 tax",
-  "$57 + $30 tax",
-]
-
 const contentStyles = [
   "Educational",
   "Promotional",
@@ -45,12 +33,12 @@ const contentStyles = [
   "Influencer-led",
   "User generated",
   "Mixed",
-  "Tutorials", // Added
-  "Reviews", // Added
-  "Vlogs", // Added
-  "Short-form video", // Added
-  "Live streams", // Added
-  "Interviews", // Added
+  "Tutorials",
+  "Reviews",
+  "Vlogs",
+  "Short-form video",
+  "Live streams",
+  "Interviews",
 ]
 
 type GrowthProposalFormProps = {
@@ -59,28 +47,6 @@ type GrowthProposalFormProps = {
 }
 
 export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPrice = "" }: GrowthProposalFormProps) {
-  const realPrice = useMemo(() => {
-    if (!selectedPlanPrice) return ""
-    const match = selectedPlanPrice.match(/^\s*([^+]+)/)
-    return (match ? match[1] : selectedPlanPrice).trim()
-  }, [selectedPlanPrice])
-
-  const budgetOptions = useMemo(() => {
-    const base = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
-    const list: string[] = [...ALL_PLAN_PRICES]
-
-    // Ensure the selected plan price appears (in case it’s not in the list)
-    if (selectedPlanPrice && !list.includes(selectedPlanPrice)) list.unshift(selectedPlanPrice)
-
-    // Optionally include the real price (without "+ $30 tax") for clarity
-    if (realPrice && !list.includes(realPrice)) list.unshift(realPrice)
-
-    // Append base ranges if not already present
-    for (const b of base) if (!list.includes(b)) list.push(b)
-
-    return list
-  }, [selectedPlanPrice, realPrice])
-
   const [state, setState] = useState<GrowthProposalState>({
     ok: false,
     message: "",
@@ -150,12 +116,30 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
         </div>
       </div>
 
-      {/* Removed Primary platform input */}
-      <div className="grid gap-1">
-        <label htmlFor="handles" className="text-sm font-medium">
-          Channel handles / links
-        </label>
-        <Input id="handles" name="handles" placeholder="@brandname or https://channel URL" />
+      <div className="grid gap-1 md:grid-cols-2 md:gap-4">
+        <div className="grid gap-1">
+          <label htmlFor="handles" className="text-sm font-medium">
+            Channel handles / links
+          </label>
+          <Input id="handles" name="handles" placeholder="@brandname or https://channel URL" />
+        </div>
+        <div className="grid gap-1">
+          <label htmlFor="contentStyle" className="text-sm font-medium">
+            Content style
+          </label>
+          <select
+            id="contentStyle"
+            name="contentStyle"
+            className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
+          >
+            <option value="">Select content style</option>
+            {contentStyles.map((style) => (
+              <option key={style} value={style}>
+                {style}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <fieldset className="grid gap-2">
@@ -189,51 +173,6 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
           <Input id="growthTargets" name="growthTargets" placeholder="e.g., 10k followers in 3 months" required />
         </div>
       </div>
-
-      <div className="grid gap-1">
-        <label htmlFor="contentStyle" className="text-sm font-medium">
-          Content style
-        </label>
-        <select
-          id="contentStyle"
-          name="contentStyle"
-          className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
-        >
-          <option value="">Select content style</option>
-          {contentStyles.map((style) => (
-            <option key={style} value={style}>
-              {style}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="grid gap-1">
-        <label htmlFor="budget" className="text-sm font-medium">
-          Budget
-        </label>
-        <select
-          id="budget"
-          name="budget"
-          className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm"
-          required
-          defaultValue={selectedPlanPrice || realPrice || ""}
-        >
-          <option value="">Select budget</option>
-          {budgetOptions.map((budget, idx) => {
-            let label = budget
-            if (selectedPlanPrice && budget === selectedPlanPrice) label = `${budget} (selected plan)`
-            else if (realPrice && budget === realPrice) label = `${budget} (plan price)`
-            return (
-              <option key={`${budget}-${idx}`} value={budget}>
-                {label}
-              </option>
-            )
-          })}
-        </select>
-      </div>
-
-      {/* Removed Preferred timeline input */}
 
       <div className="grid gap-1">
         <label htmlFor="goals" className="text-sm font-medium">
