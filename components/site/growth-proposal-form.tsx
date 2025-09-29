@@ -41,6 +41,8 @@ const contentStyles = [
   "Interviews",
 ]
 
+const budgetRanges = ["₹10k–₹25k", "₹25k–₹50k", "₹50k–₹1L", "₹1L+", "Not set yet"]
+
 type GrowthProposalFormProps = {
   selectedPlan?: string
   selectedPlanPrice?: string
@@ -140,6 +142,40 @@ export default function GrowthProposalForm({ selectedPlan = "", selectedPlanPric
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="grid gap-1 md:grid-cols-2 md:gap-4">
+        <div className="grid gap-1">
+          <label htmlFor="currentMetrics" className="text-sm font-medium">
+            Current metrics
+          </label>
+          <Input
+            id="currentMetrics"
+            name="currentMetrics"
+            placeholder="Followers, subs, watch hours, traffic etc."
+            required
+          />
+        </div>
+        <div className="grid gap-1">
+          <label htmlFor="growthTargets" className="text-sm font-medium">
+            Target milestones
+          </label>
+          <Input id="growthTargets" name="growthTargets" placeholder="e.g., 10k followers in 3 months" required />
+        </div>
+      </div>
+
+      <div className="grid gap-1">
+        <label htmlFor="budget" className="text-sm font-medium">
+          Budget
+        </label>
+        <select id="budget" name="budget" className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm">
+          <option value="">Select budget</option>
+          {budgetRanges.map((b) => (
+            <option key={b} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
       </div>
 
       <fieldset className="grid gap-2">
