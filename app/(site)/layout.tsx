@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
     siteName: "Budhiraja Services",
-    images: [{ url: "/logo-budhiraja-services-wide.png" }],
+    images: [{ url: "/logo-budhiraja-services-new.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Budhiraja Services — Website Development",
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
-    images: ["/logo-budhiraja-services-wide.png"],
+    images: ["/logo-budhiraja-services-new.png"],
   },
   robots: {
     index: true,
@@ -62,7 +62,7 @@ export default function RootLayout({
             <div className="container flex h-24 items-center justify-between">
               <div className="flex items-center space-x-4">
                 <a href="/" className="flex items-center space-x-2" aria-label="Budhiraja Services Home">
-                  <img src="/logo-budhiraja-services-wide.png" alt="Budhiraja Services" className="h-16 w-auto" />
+                  <img src="/logo-budhiraja-services-new.png" alt="Budhiraja Services" className="h-16 w-auto" />
                 </a>
               </div>
 
@@ -113,7 +113,7 @@ export default function RootLayout({
             <div className="container py-12">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                 <div className="space-y-4">
-                  <img src="/logo-budhiraja-services-wide.png" alt="Budhiraja Services" className="h-16 w-auto" />
+                  <img src="/logo-budhiraja-services-new.png" alt="Budhiraja Services" className="h-16 w-auto" />
                   <p className="text-sm text-slate-600">Affordable & Creative Website Development Solutions.</p>
                 </div>
                 <div>
@@ -197,7 +197,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Budhiraja Services",
               url: "https://budhirajaservices.com",
-              logo: "https://budhirajaservices.com/logo-budhiraja-services-wide.png",
+              logo: "https://budhirajaservices.com/logo-budhiraja-services-new.png",
               contactPoint: [
                 {
                   "@type": "ContactPoint",

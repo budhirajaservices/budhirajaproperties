@@ -565,6 +565,13 @@ export default function HomePage() {
         </div>
         <FAQ />
       </section>
+
+      {/* Footer Section */}
+      <footer className="container mx-auto px-4 py-16 bg-slate-900 text-white">
+        <div className="text-center">
+          <img src="/logo-budhiraja-services-new.png" alt="Budhiraja Services" className="h-16 w-auto" />
+        </div>
+      </footer>
     </>
   )
 }
