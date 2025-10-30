@@ -12,14 +12,20 @@ export const metadata: Metadata = {
       "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
     url: "https://budhirajaservices.com/proposal/growth",
     type: "website",
-    images: [{ url: "/logo-budhiraja-services-wide.png" }],
+    images: [
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-iv62htfHBoAreJ1v3Uo7oMKGlP1MRL.png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Book a Growth Plan | Budhiraja Services",
     description:
       "Secure your social growth & monetization campaign. Tell us about your brand, current metrics, and goals.",
-    images: ["/logo-budhiraja-services-wide.png"],
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-iv62htfHBoAreJ1v3Uo7oMKGlP1MRL.png",
+    ],
   },
 }
 
