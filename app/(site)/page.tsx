@@ -569,11 +569,7 @@ export default function HomePage() {
       {/* Footer Section */}
       <footer className="container mx-auto px-4 py-16 bg-slate-900 text-white">
         <div className="text-center">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png"
-            alt="Budhiraja Services"
-            className="h-16 w-auto"
-          />
+          <img src="/logo-budhiraja-services-new.png" alt="Budhiraja Services" className="h-16 w-auto" />
         </div>
       </footer>
     </>

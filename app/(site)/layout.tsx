@@ -27,20 +27,14 @@ export const metadata: Metadata = {
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
     siteName: "Budhiraja Services",
-    images: [
-      {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png",
-      },
-    ],
+    images: [{ url: "/logo-budhiraja-services.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Budhiraja Services — Website Development",
     description:
       "Affordable & creative website development. Fast, secure, and SEO‑ready websites that help your business grow.",
-    images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png",
-    ],
+    images: ["/logo-budhiraja-services.png"],
   },
   robots: {
     index: true,
@@ -68,11 +62,7 @@ export default function RootLayout({
             <div className="container flex h-24 items-center justify-between">
               <div className="flex items-center space-x-4">
                 <a href="/" className="flex items-center space-x-2" aria-label="Budhiraja Services Home">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png"
-                    alt="Budhiraja Services"
-                    className="h-16 w-auto"
-                  />
+                  <img src="/logo-budhiraja-services.png" alt="Budhiraja Services" className="h-16 w-auto" />
                 </a>
               </div>
 
@@ -123,11 +113,7 @@ export default function RootLayout({
             <div className="container py-12">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                 <div className="space-y-4">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png"
-                    alt="Budhiraja Services"
-                    className="h-16 w-auto"
-                  />
+                  <img src="/logo-budhiraja-services.png" alt="Budhiraja Services" className="h-16 w-auto" />
                   <p className="text-sm text-slate-600">Affordable & Creative Website Development Solutions.</p>
                 </div>
                 <div>
@@ -211,7 +197,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Budhiraja Services",
               url: "https://budhirajaservices.com",
-              logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Budhiraja%20Services%20Logo-qrlXiUFfLCfJzf0i4M6ciA7wjYPTdA.png",
+              logo: "https://budhirajaservices.com/logo-budhiraja-services.png",
               contactPoint: [
                 {
                   "@type": "ContactPoint",
