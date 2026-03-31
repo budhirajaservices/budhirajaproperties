@@ -7,15 +7,6 @@ import {
   Wrench,
   Search,
   ShieldCheck,
-  Play,
-  TrendingUp,
-  ThumbsUp,
-  MessageCircle,
-  BarChart3,
-  X,
-  Send,
-  AtSign,
-  Music,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -60,105 +51,6 @@ const services = [
     title: "SEO Optimization",
     icon: Search,
     points: ["On‑page SEO & metadata", "Technical health checks", "Performance & Core Web Vitals"],
-  },
-  {
-    title: "YouTube Monetization Sprint",
-    icon: Play,
-    points: [
-      "1000 Subscribers + 4000 Watch Hours support",
-      "Organic & Safe Growth Strategy",
-      "SEO Optimized Titles & Tags Guidance",
-      "Video CTR & Audience Retention Tips",
-      "Monetization Approval Support",
-    ],
-  },
-  {
-    title: "Instagram Followers Boost",
-    icon: TrendingUp,
-    points: [
-      "Real & Active Followers Growth",
-      "Targeted Audience (India/Global)",
-      "Engagement Boost (Likes + Comments)",
-      "Consistent Growth Guarantee",
-      "Profile Optimization Support",
-    ],
-  },
-  {
-    title: "Facebook Community Growth",
-    icon: ThumbsUp,
-    points: [
-      "Page Likes & Followers Increase",
-      "Targeted Group Members Growth",
-      "Post Engagement Boost",
-      "Ad Campaign Setup Guidance",
-      "Brand Awareness Strategy",
-    ],
-  },
-  {
-    title: "WhatsApp Channel Expansion",
-    icon: MessageCircle,
-    points: [
-      "1000+ Genuine Subscribers Growth",
-      "Direct Engagement with Audience",
-      "Automated Broadcast Setup Guidance",
-      "Increased CTR on Links/Posts",
-      "Retention & Re-engagement Strategy",
-    ],
-  },
-  {
-    title: "Website Traffic Accelerator",
-    icon: BarChart3,
-    points: [
-      "Real Human Traffic (Google + Social Media)",
-      "Targeted Geo Traffic (India/Global)",
-      "SEO Boost + Backlinking",
-      "CTR & Bounce Rate Optimization",
-      "Detailed Analytics Report",
-    ],
-  },
-  {
-    title: "Twitter Profile Boost",
-    icon: X,
-    points: [
-      "Real Followers Growth",
-      "Increased Tweet Engagement (Likes + Retweets)",
-      "Trending Hashtag Strategy",
-      "Profile Branding & Optimization",
-      "Organic Audience Reach",
-    ],
-  },
-  {
-    title: "Telegram Profile Boost",
-    icon: Send,
-    points: [
-      "Channel Members / Group Members Growth",
-      "Active & Engaged Audience",
-      "Content Sharing Strategy",
-      "CTR Improvement",
-      "Automation & Bot Setup Guidance",
-    ],
-  },
-  {
-    title: "Threads Profile Boost",
-    icon: AtSign,
-    points: [
-      "Real Followers Growth",
-      "Content Engagement (Likes + Comments)",
-      "Hashtag & Trend Optimization",
-      "Profile Branding Strategy",
-      "Organic Growth",
-    ],
-  },
-  {
-    title: "Spotify Profile Boost",
-    icon: Music,
-    points: [
-      "Song Streams Growth (Real Listeners)",
-      "Playlist Placement Support",
-      "Artist Profile Optimization",
-      "Global Reach Expansion",
-      "Monthly Analytics Reports",
-    ],
   },
 ]
 
